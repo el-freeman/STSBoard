@@ -30,7 +30,8 @@ CREATE TABLE board
 	hitcount number default 0,		-- 조회수
 	regdate  date default sysdate,		-- 등록일
 	originalfile varchar2(300),		-- 첨부 파일명(원래이름)
-	savedfile    varchar2(300)		-- 첨부 파일명(실제 파일에 저장된 이름)
+	savedfile    varchar2(300),		-- 첨부 파일명(실제 파일에 저장된 이름)
+	replycount number default 0             -- 댓글 수
 );
 
 CREATE SEQUENCE board_seq;
@@ -42,7 +43,9 @@ CREATE TABLE reply
 	boardnum  number not null references board(boardnum), -- 참조하는 본문글번호
 	userid    varchar2(50)   not null,	-- 댓글 작성자 아이디
 	replytext varchar2(1000) not null,	-- 댓글 내용
-	regdate   date default sysdate		-- 댓글 작성일
+	regdate   date default sysdate,	-- 댓글 작성일
+	referencenum number default 0,            -- 그냥 댓글은 0, 대댓글은 대댓글을 이 달려있는 댓글의 replynum
+	isdeleted number default 0 		-- 대댓글이 달린 댓글의 흔적을 남기기 위한
 );
 
 CREATE SEQUENCE reply_seq;

@@ -4,12 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="net.scit.board.vo.Member" alias="Member" />
-		<typeAlias type="net.scit.board.vo.Board"  alias="Board" />
+		<typeAlias type="com.aaa.board.vo.Member" alias="Member" />
+		<typeAlias type="com.aaa.board.vo.Board"  alias="Board" />
+		<typeAlias type="com.aaa.board.vo.ReplyVO"  alias="ReplyVO" />
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/memberMapper.xml" />
 		<mapper resource="mappers/boardMapper.xml" />
+		<mapper resource="mappers/replyMapper.xml" />
 	</mappers>
 </configuration>

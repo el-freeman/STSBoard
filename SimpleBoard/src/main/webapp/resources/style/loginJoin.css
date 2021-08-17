@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.wrapper{
+	margin : 0 auto;
+}
+div.wrapper>h2 {
+	text-align : center;
+}
+
+table {
+	margin : 0 auto;
+	line-height : 180%;
+}
+
+td{
+	padding-left : 10px;
+}

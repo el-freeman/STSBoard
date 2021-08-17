@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.scit.board.dao.BoardMapper">
+<mapper namespace="com.aaa.board.dao.BoardMapper">
 <!-- 글 저장 -->
 <insert id="insertBoard" parameterType="Board">
 INSERT INTO board
@@ -46,6 +46,7 @@ select * from
             , hitcount
             , originalfile
             , savedfile
+            , replycount
         FROM board
         where
         <choose>
@@ -70,6 +71,7 @@ SELECT
 	, hitcount
 	, originalfile
 	, savedfile
+	, replycount
 FROM board
 WHERE
 	boardnum = #{boardnum}
@@ -126,6 +128,27 @@ where
 	boardnum = #{boardnum}
 
 </update>
+
+<update id = "updateReplyCount" parameterType="int">
+update board
+set
+	replycount = 
+		(select count(*) 
+		from reply 
+		where 
+			boardnum = #{boardnum} )	-
+			
+		(select count(*) 
+		from reply 
+		where 
+			isdeleted = 1 
+			and boardnum = #{boardnum})
+			
+where
+	boardnum = #{boardnum}
+
+</update>
+
 
 </mapper>
 

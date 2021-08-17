@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.scit.board.dao.MemberMapper">
+<mapper namespace="com.aaa.board.dao.MemberMapper">
 	<!-- 회원 가입 -->
 	<insert id="insertMember" parameterType="Member">
 	INSERT INTO members
@@ -33,8 +33,10 @@
 		members
 	WHERE
 		userid = #{userid}
+	<if test="userpwd != null">
 	AND
 		userpwd = #{userpwd}
+	</if>
 	</select>
 	
 	<select id="selectOne" parameterType="String" resultType="Member">
@@ -62,6 +64,13 @@
 		userid = #{userid}
 	
 	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+	delete members
+	where
+	userid = #{userid}
+	
+	</delete>
 	
 	
 	
