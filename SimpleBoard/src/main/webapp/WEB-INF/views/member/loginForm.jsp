@@ -28,7 +28,6 @@ function loginCheck() {
 		userpwd.select();
 		return false;
 	}
-	alert("로그인 성공!")
 	return true;
 }
 </script>
