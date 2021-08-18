@@ -85,29 +85,13 @@
 	}
 </style>
 <script src="resources/script/jquery-3.6.0.min.js"></script>
+<script src="resources/script/logoutCheck.js?ver=1"></script>
 <script>
 $(function() {
 	if(window.performance.getEntriesByType("navigation")[0].type === "back_forward"){
 		   location.reload(true);
 		}
 });
-
-function logout(){
-	if('${sessionScope.loginId}' == null){
-		alert("로그인해주세요");
-		return;
-	}
-	else{
-		if(confirm("로그아웃 하시겠습니까")){
-			let targetPlace = "logout";
-			location.href = targetPlace;
-			alert("로그아웃 되었습니다.")
-		}
-		else{
-			return;
-		}
-	}	
-}
 
 function detailBoard(num) {
 	let targetPlace = 'detailboard?boardnum=' + num;
