@@ -4,10 +4,10 @@ Bulletin board system made by Spring framework(legacy project).
 
 ## Service
 
-Member join, login, logout, info update, withdrawal
-Writing, edit, delete, searching
-comment, nested comment
-file upload, download
+Member join, login, logout, info update, withdrawal  
+Writing, edit, delete, searching  
+comment, nested comment  
+file upload, download  
 
 Anyone can read, but only members can write including comments.
 
